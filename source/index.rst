@@ -4,12 +4,12 @@ lhcb-manual
 
 .. py:class:: DecayTreeTuple
 
-Allows you to save event data in the `NTuple` (ROOT `TTree`) format.
+   Allows you to save event data in the `NTuple` (ROOT `TTree`) format.
 
-The data is saved using individual :py:class:`TupleTool`\s, which have to be configured separately.
-These are plugged into :py:class:`DecayTreeTuple` using the :py:attr:`ToolList` attribute.
+   The data is saved using individual :py:class:`TupleTool`\s, which have to be configured separately.
+   These are plugged into :py:class:`DecayTreeTuple` using the :py:attr:`ToolList` attribute.
 
-When executing, the :py:class:`DecayTreeTuple` runs all of its :py:class:`TupleTool`\s, each of which saves entries to certain branches.
+   When executing, the :py:class:`DecayTreeTuple` runs all of its :py:class:`TupleTool`\s, each of which saves entries to certain branches.
 
    .. py:function:: __init__(name)
 
@@ -18,12 +18,22 @@ When executing, the :py:class:`DecayTreeTuple` runs all of its :py:class:`TupleT
 
    .. py:attribute:: ToolList
    
-   A :py:class:`list` of :py:class:`str` with names of :py:class:`TupleTool`\s.
-   Each of these will later be executed by the :py:class:`DecayTreeTuple`
+      A :py:class:`list` of :py:class:`str` with names of :py:class:`TupleTool`\s.
+      Each of these will later be executed by the :py:class:`DecayTreeTuple`
    
    .. py:attribute:: TupleName
 
-   The name of the directory that the DecayTreeTuple will save data to in your ROOT file.
+      The name of the directory that the DecayTreeTuple will save data to in your ROOT file.
+
+   :Example:
+
+   ::
+
+       from Configurables import DecayTreeTuple
+
+       tuple = DecayTreeTuple('B2KstMuMu')
+       tuple.Decay = 'B0 -> ^pi+ ^pi-'
+       tuple.TupleName = 'out'
 
 .. toctree::
    :maxdepth: 2
